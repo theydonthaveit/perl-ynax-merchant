@@ -1,1 +1,9 @@
 requires "Mojolicious";
+requires "Text::CSV::Simple";
+requires "MongoDB";
+requires "Moo";
+requires "Project::Libs";
+requires "Log::Message::Simple";
+requires "Getopt::Long";
+requires "File::Monitor";
+requires "Data::Dumper";
