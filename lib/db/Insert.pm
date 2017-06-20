@@ -8,6 +8,9 @@ has db => ( is => 'ro', default => 'YNAP' );
 has collection => ( is => 'ro', default => 'CLOTHING' );
 has name => ( is => 'ro' );
 has category => ( is => 'ro' );
+has tag => ( is => 'ro' );
+
+# TODO LOG AT THE END
 
 sub insert
 {
@@ -25,10 +28,9 @@ sub insert
 
     $collection->insert_one({
         name => $self->name,
-        category => $self->category
+        category => $self->category,
+        tag => $self->tag
     });
-
-    return 1;
 }
 
 1;

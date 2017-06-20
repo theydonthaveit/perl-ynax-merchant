@@ -10,6 +10,10 @@ sub startup {
 
   # Normal route to controller
   $r->get('/')->to('clothes#welcome');
+  $r->get('/api/V1/clothes')->to('clothes#retrieve_all_items');
+  $r->get('/api/V1/clothes/outfit_range/:range_name')->to('clothes#range_match');
+  $r->get('/api/V1/clothes/match/:item_name')->to('clothes#exact_match');
+  $r->get('/api/V1/clothes/similar/(\w+)')->to('clothes#similar_match');
 }
 
 1;

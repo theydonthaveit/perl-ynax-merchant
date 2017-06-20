@@ -1,6 +1,5 @@
 package ReadFile;
 
-use Getopt::Long;
 use Text::CSV::Simple;
 
 use db::Insert;
@@ -48,8 +47,9 @@ sub input_to_db
     {
         next if $_->[0] =~ m/name/;
         Insert->new(
-            name => remove_whitespace($_->[0]),
-            category => remove_whitespace($_->[1])
+            name => $self->remove_whitespace($_->[0]),
+            category => $self->remove_whitespace($_->[1]),
+            tag => $self->tag_clothes($_->[0])
         )->insert;
     }
 
@@ -58,9 +58,25 @@ sub input_to_db
 
 sub remove_whitespace
 {
+    my $self = shift;
     my $data = shift;
+
     $data =~ s/^\s+|\s+$//g;
-    return $data
+    return $data;
+}
+
+sub tag_clothes
+{
+    my $self = shift;
+    my $item = shift;
+    my $tag_for_item;
+
+    my $name_of_items;
+    @{$name_of_items} = split( ' ', $item );
+
+    $tag_for_item = $name_of_items->[0];
+
+    return $tag_for_item;
 }
 
 1;
