@@ -1,4 +1,4 @@
-package YNAXMerchant::Controller::Clothes;
+package YNAPMerchant::Controller::Clothes;
 use Mojo::Base 'Mojolicious::Controller';
 
 use db::Select;
@@ -14,7 +14,7 @@ sub welcome
     . 'TO LIST ALL ITEMS: /api/V1/clothes'."\n"
     . 'TO RETRIEVE A RANGE MATCH: /api/V1/clothes/outfit_range/{range_name}'."\n"
     . 'TO RETRIEVE AN EXACT MATCH: /api/V1/clothes/match/{item_name}'."\n"
-    . 'TO RETRIEVE SIMILAR ITEMS: /api/V1/clothes/similar/(*+)'."\n"
+    . 'TO RETRIEVE SIMILAR ITEMS: /api/V1/clothes/similar/(\w+)'."\n"
     . 'Accepts atring e.g. "iRun Black Trainers" or "Black" etc.';
 
   $self->render( data => $welcome_msg );

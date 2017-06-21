@@ -1,5 +1,5 @@
 package Cleanse;
-use Data::Dumper;
+
 use Moo;
 use namespace::clean;
 

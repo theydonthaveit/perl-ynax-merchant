@@ -3,7 +3,6 @@ package Select;
 use MongoDB;
 
 use Try::Tiny;
-use List::MoreUtils qw/uniq/;
 use Data::Dumper;
 use Moo;
 use namespace::clean;

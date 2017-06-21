@@ -1,4 +1,4 @@
-package YNAXMerchant;
+package YNAPMerchant;
 use Mojo::Base 'Mojolicious';
 
 # This method will run once at server start

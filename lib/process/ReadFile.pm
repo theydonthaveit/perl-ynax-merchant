@@ -6,11 +6,6 @@ use db::Insert;
 
 use Moo;
 use namespace::clean;
-# use utils::Logger;
-
-# THIS IS A PROCESS A NEED NOT BE DONE IN OOP
-
-# my $LOG = Logger->new();
 
 has file => ( is => 'ro' );
 
@@ -40,6 +35,7 @@ sub input_to_db
 
     unless ( $self->{completed} )
     {
+        # TODO LOGGER package required to Send error to Log DB
         return 1;
     }
 
@@ -53,7 +49,11 @@ sub input_to_db
         )->insert;
     }
 
-    return 1;
+    # TODO LOGGER package required to Send success to Log DB
+    return bless {
+        completed => 1,
+        log => 1
+    };
 }
 
 sub remove_whitespace
