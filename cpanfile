@@ -7,3 +7,4 @@ requires "Data::Dumper";
 requires "Try::Tiny";
 requires "Test::More";
 requires "Test::Mock::MongoDB";
+requires "Project::Libs";
